@@ -20,7 +20,7 @@ namespace eclipse::hacks::Global {
         }
       
         [[nodiscard]] const char* getId() const override { return "V-Sync Toggle"; }
-    }
+    };
 
     REGISTER_HACK(VSyncToggle)
 }
