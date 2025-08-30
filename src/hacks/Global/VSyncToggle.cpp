@@ -16,13 +16,13 @@ namespace eclipse::hacks::Global {
                    GameManager::sharedState()->setGameVariable("0030", v);
                    cocos2d::CCApplication::sharedApplication()->toggleVerticalSync(v);
                })->disableSaving();
-
+            bool vsync = GameManager::sharedState()->getGameVariable("0030");
             config::set("global.v-sync.toggle", vsync);
         }
-        void lateInit() override {
-            bool vsync = GameManager::sharedState()->getGameVariable("0030");
-            config::setTemp("global.v-sync.toggle", vsync);
-        }
+   //     void lateInit() override {
+      //      bool vsync = GameManager::sharedState()->getGameVariable("0030");
+//            config::setTemp("global.v-sync.toggle", vsync);
+   //     }
         
         [[nodiscard]] const char* getId() const override { return "V-Sync Toggle"; }
     };
