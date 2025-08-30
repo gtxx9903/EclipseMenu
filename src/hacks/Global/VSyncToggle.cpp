@@ -8,8 +8,6 @@
 namespace eclipse::hacks::Global {
     class $hack(VSyncToggle) {
         void init() override {
-            auto vsync = GameManager::sharedState()->getGameVariable("0030");
-             
             auto tab = gui::MenuTab::find("tab.global");
             tab->addToggle("global.vsync-toggle", "global.v-sync.toggle")
                ->handleKeybinds()
@@ -21,7 +19,9 @@ namespace eclipse::hacks::Global {
 
             config::set("global.v-sync.toggle", vsync);
         }
-      
+        bool vsync = GameManager::sharedState()->getGameVariable("0030");
+        config::setTemp("global.v-sync.toggle", vsync);
+             
         [[nodiscard]] const char* getId() const override { return "V-Sync Toggle"; }
     };
 
