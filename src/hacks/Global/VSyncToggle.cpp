@@ -1,3 +1,5 @@
+#ifdef GEODE_IS_WINDOWS
+
 #include <modules/config/config.hpp>
 #include <modules/gui/gui.hpp>
 #include <modules/gui/components/toggle.hpp>
@@ -25,3 +27,5 @@ namespace eclipse::hacks::Global {
 
     REGISTER_HACK(VSyncToggle)
 }
+
+#endif
