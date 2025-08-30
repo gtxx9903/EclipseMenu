@@ -14,6 +14,7 @@ namespace eclipse::hacks::Global {
                ->setDescription()
                ->callback([](bool v) {
                    GameManager::sharedState()->setGameVariable("0030", v);
+                   cocos2d::CCApplication::sharedApplication()->toggleVerticalSync(v);
                })->disableSaving();
 
             config::set("global.v-sync.toggle", vsync);
