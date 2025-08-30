@@ -19,9 +19,11 @@ namespace eclipse::hacks::Global {
 
             config::set("global.v-sync.toggle", vsync);
         }
-        bool vsync = GameManager::sharedState()->getGameVariable("0030");
-        config::setTemp("global.v-sync.toggle", vsync);
-             
+        void lateInit() override {
+            bool vsync = GameManager::sharedState()->getGameVariable("0030");
+            config::setTemp("global.v-sync.toggle", vsync);
+        }
+        
         [[nodiscard]] const char* getId() const override { return "V-Sync Toggle"; }
     };
 
